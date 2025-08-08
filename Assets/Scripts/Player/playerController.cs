@@ -1,12 +1,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(Collider2D))]
-
+[RequireComponent(typeof(Animator))]
 public class playerController : MonoBehaviour
 {
     private bool grounded = false;
     private float groundCheckRadius = 0.02f;
     private LayerMask gl;
+    private Animator anim;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Collider2D col;
@@ -20,6 +21,7 @@ public class playerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         gl = LayerMask.GetMask("ground");
         col = GetComponent<Collider2D>();
+        anim = GetComponent<Animator>();
 
         if(gl == 0)
         {
@@ -45,7 +47,8 @@ public class playerController : MonoBehaviour
             rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
         }
 
-        
+        anim.SetFloat("hValue", Mathf.Abs(hValue));
+        anim.SetBool("grounded", grounded);
     }
 
     void spriteFlip(float hValue)
