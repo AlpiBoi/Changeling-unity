@@ -4,14 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class playerController : MonoBehaviour
 {
-    private bool grounded = false;
-    private float groundCheckRadius = 0.02f;
-    private LayerMask gl;
+    [SerializeField]private float groundCheckRadius = 0.02f;
     private Animator anim;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Collider2D col;
-    private Vector2 groundCheckPos => new Vector2(col.bounds.min.x + col.bounds.extents.x, col.bounds.min.y);
+    private groundCheck groundcheck;
+    private float initialGroundCheckRadius;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,36 +18,40 @@ public class playerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        gl = LayerMask.GetMask("ground");
         col = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
-
-        if(gl == 0)
-        {
-            Debug.LogWarning("ground layer is not set, set it in LayerMask");
-        }
- 
+        groundcheck = new groundCheck(col, LayerMask.GetMask("ground"), groundCheckRadius);
+        initialGroundCheckRadius = groundCheckRadius;
     }
 
     // Update is called once per frame
     void Update()
     {
         //left-right movement
-        float hValue = Input.GetAxis("Horizontal");
+        float hValue = Input.GetAxisRaw("Horizontal");
         spriteFlip(hValue);
         rb.linearVelocityX = hValue * 5f;
+        groundcheck.CheckIsGrounded();
+        AnimatorStateInfo currentState = anim.GetCurrentAnimatorStateInfo(0);
 
-        //groundcheck
-        grounded = Physics2D.OverlapCircle(groundCheckPos, groundCheckRadius, gl);
-
+        if (!currentState.IsName("basic") && Input.GetButtonDown("Fire1"))
+        {
+            anim.SetTrigger("basic");
+        }
+        if (currentState.IsName("basic"))
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
         //jump
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && groundcheck.grounded)
         {
             rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
         }
 
         anim.SetFloat("hValue", Mathf.Abs(hValue));
-        anim.SetBool("grounded", grounded);
+        anim.SetBool("grounded", groundcheck.grounded);
+        if (initialGroundCheckRadius != groundCheckRadius)
+            groundcheck.UpdateGroundCheckRadius(initialGroundCheckRadius);
     }
 
     void spriteFlip(float hValue)
