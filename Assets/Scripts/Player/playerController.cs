@@ -15,6 +15,7 @@ public class playerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log("launched");
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -64,6 +65,20 @@ public class playerController : MonoBehaviour
     {
         sr.flipX = false;
     }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("collision found");
+        if (other.gameObject.CompareTag("basicSoul"))
+        {
+                Destroy(other.gameObject);
+                Debug.Log("it collided");
+        }
+        else{
+            Debug.Log ("nothing happened");
+        }
+
     }
 }
 

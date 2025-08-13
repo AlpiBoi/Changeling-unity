@@ -405,7 +405,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: white 5
+      name: white5
       rect:
         serializedVersion: 2
         x: 136
@@ -1513,7 +1513,7 @@ TextureImporter:
         width: 32
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1602,11 +1602,11 @@ TextureImporter:
       red3: -1859674774
       red4: -407448542
       red5: -147973870
-      white 5: -111256550
       white1: -1340566796
       white2: 2062926600
       white3: -1485972403
       white4: 708631887
+      white5: -111256550
       whiteportal1: 2065503807
       whiteportal2: -196288231
       whiteportal3: -742312550
