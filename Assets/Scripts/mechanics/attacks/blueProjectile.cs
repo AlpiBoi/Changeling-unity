@@ -11,5 +11,10 @@ public class blueProjectile : MonoBehaviour
         Destroy(gameObject, lifetime);
 
     }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        Destroy(gameObject);
+    }
     public void SetVelocity(Vector2 velocity) => GetComponent<Rigidbody2D>().linearVelocity = velocity;
 }
