@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class playerController : MonoBehaviour
 {
-    [SerializeField]private float groundCheckRadius = 0.02f;
+    [SerializeField]private float groundCheckRadius = 0.05f;
     private Animator anim;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
@@ -34,11 +34,11 @@ public class playerController : MonoBehaviour
         groundcheck.CheckIsGrounded();
         AnimatorStateInfo currentState = anim.GetCurrentAnimatorStateInfo(0);
 
-        if (!currentState.IsName("basic") && Input.GetButtonDown("Fire1"))
+        if (!currentState.IsName("blue") && Input.GetButtonDown("Fire1"))
         {
-            anim.SetTrigger("basic");
+            anim.SetTrigger("blue");
         }
-        if (currentState.IsName("basic"))
+        if (currentState.IsName("blue"))
         {
             rb.linearVelocity = Vector2.zero;
         }

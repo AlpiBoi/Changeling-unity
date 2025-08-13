@@ -35,7 +35,7 @@ public class BlueAttack : MonoBehaviour
         else
         {
             curProjectile = Instantiate(projectilePrefab, leftSpawn.position, Quaternion.identity).GetComponent<blueProjectile>();
-            curProjectile.SetVelocity(initShotVelocity);
+            curProjectile.SetVelocity(-initShotVelocity);
         }
     }
 
