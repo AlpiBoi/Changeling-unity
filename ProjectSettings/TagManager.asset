@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - basicSoul
+  - blueSoul
+  - greenSoul
+  - redSoul
+  - whiteSoul
+  - yellowSoul
+  - pinkSoul
   layers:
   - Default
   - TransparentFX
@@ -16,7 +22,7 @@ TagManager:
   - player projectiles
   - enemies
   - enemy projectiles
-  - 
+  - spawn zones
   - 
   - 
   - 
