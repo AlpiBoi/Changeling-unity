@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5277193571239913821}
   - component: {fileID: 835271370665566511}
   - component: {fileID: 8131311976667137646}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: greenPlayerAttack
-  m_TagString: Untagged
+  m_TagString: greenAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

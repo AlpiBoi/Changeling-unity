@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6101970677551358234}
   - component: {fileID: 7010756592358797874}
   - component: {fileID: 5623634680728676210}
+  - component: {fileID: -7282416662896249166}
   m_Layer: 6
   m_Name: bluesoul
   m_TagString: blueSoul
@@ -147,3 +148,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.5}
   m_Radius: 0.3
+--- !u!114 &-7282416662896249166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8450264445049799205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7c6eac9e404e145961333fe48b53d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

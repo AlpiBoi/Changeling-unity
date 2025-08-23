@@ -11,6 +11,13 @@ TagManager:
   - whiteSoul
   - yellowSoul
   - pinkSoul
+  - basicAttack
+  - blueAttack
+  - greenAttack
+  - redAttack
+  - whiteAttack
+  - yellowAttack
+  - pinkAttack
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class playerController : MonoBehaviour
 {
+
+
+    public string inv1 = "basicSoul";
+    public string inv2 = "nothing"; 
+
     [SerializeField]private float groundCheckRadius = 0.05f;
     private Animator anim;
     private Rigidbody2D rb;
@@ -67,19 +72,7 @@ public class playerController : MonoBehaviour
     }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("collision found");
-        if (other.gameObject.CompareTag("basicSoul"))
-        {
-                Destroy(other.gameObject);
-                Debug.Log("it collided");
-        }
-        else{
-            Debug.Log ("nothing happened");
-        }
-
-    }
+ 
 }
 
 

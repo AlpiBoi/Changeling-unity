@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1796359365060277351}
   - component: {fileID: 2566661530054075728}
   - component: {fileID: 7100131356330182115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pinkPlayerAttack
-  m_TagString: Untagged
+  m_TagString: pinkAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
