@@ -38,5 +38,18 @@ public class BlueAttack : MonoBehaviour
             curProjectile.SetVelocity(-initShotVelocity);
         }
     }
-
+    public void YelAttack()
+    {
+        yellowProjectile curProjectile;
+        if (!sr.flipX)
+        {
+            curProjectile = Instantiate(projectilePrefab, rightSpawn.position, Quaternion.identity).GetComponent<yellowProjectile>();
+            curProjectile.SetVelocity(initShotVelocity);
+        }
+        else
+        {
+            curProjectile = Instantiate(projectilePrefab, leftSpawn.position, Quaternion.identity).GetComponent<yellowProjectile>();
+            curProjectile.SetVelocity(-initShotVelocity);
+        }
+    }
 }

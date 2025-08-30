@@ -18,6 +18,8 @@ TagManager:
   - whiteAttack
   - yellowAttack
   - pinkAttack
+  - barrier
+  - enemy
   layers:
   - Default
   - TransparentFX

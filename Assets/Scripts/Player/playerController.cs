@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class playerController : MonoBehaviour
 {
-
+    public float playerPosX;
 
     public string inv1 = "basicSoul";
     public string inv2 = "nothing"; 
@@ -26,6 +26,7 @@ public class playerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
+       
         groundcheck = new groundCheck(col, LayerMask.GetMask("ground"), groundCheckRadius);
         initialGroundCheckRadius = groundCheckRadius;
     }
@@ -39,6 +40,7 @@ public class playerController : MonoBehaviour
         rb.linearVelocityX = hValue * 5f;
         groundcheck.CheckIsGrounded();
         AnimatorStateInfo currentState = anim.GetCurrentAnimatorStateInfo(0);
+        playerPosX = transform.position.x;
 
         if (!currentState.IsName("blue") && Input.GetButtonDown("Fire1"))
         {
