@@ -31,11 +31,13 @@ public class BlueAttack : MonoBehaviour
         {
             curProjectile = Instantiate(projectilePrefab, rightSpawn.position, Quaternion.identity).GetComponent<blueProjectile>();
             curProjectile.SetVelocity(initShotVelocity);
+        
         }
         else
         {
-            curProjectile = Instantiate(projectilePrefab, leftSpawn.position, Quaternion.identity).GetComponent<blueProjectile>();
+            curProjectile = Instantiate(projectilePrefab, leftSpawn.position, Quaternion.Euler(45,45,45)).GetComponent<blueProjectile>();
             curProjectile.SetVelocity(-initShotVelocity);
+          
         }
     }
     public void YelAttack()
@@ -48,7 +50,7 @@ public class BlueAttack : MonoBehaviour
         }
         else
         {
-            curProjectile = Instantiate(projectilePrefab, leftSpawn.position, Quaternion.identity).GetComponent<yellowProjectile>();
+            curProjectile = Instantiate(projectilePrefab, leftSpawn.position, Quaternion.Euler(0,180,0)).GetComponent<yellowProjectile>();
             curProjectile.SetVelocity(-initShotVelocity);
         }
     }

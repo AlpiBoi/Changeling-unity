@@ -6238,7 +6238,7 @@ GameObject:
   - component: {fileID: 105850942}
   - component: {fileID: 105850941}
   - component: {fileID: 105850943}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: yellowFairy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -53993,7 +53993,7 @@ Transform:
   m_GameObject: {fileID: 790404418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.02, y: 1.42, z: 0}
+  m_LocalPosition: {x: 44.01, y: 1.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54045,6 +54045,7 @@ MonoBehaviour:
   inv1: basic
   inv2: nothing
   groundCheckRadius: 0.05
+  PlayerTrans: {fileID: 790404421}
 --- !u!95 &790404424
 Animator:
   serializedVersion: 7
@@ -86649,7 +86650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1265980658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leftSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86665,7 +86666,7 @@ Transform:
   m_GameObject: {fileID: 1265980657}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -135651,7 +135652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1930949277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rightSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135667,7 +135668,7 @@ Transform:
   m_GameObject: {fileID: 1930949276}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

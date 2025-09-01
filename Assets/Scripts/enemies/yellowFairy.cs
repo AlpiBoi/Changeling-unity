@@ -4,11 +4,12 @@ public class yellowFairy : enemy
 {
     [SerializeField] private float fireRate = 2.0f;
     private float timeSinceLastShot = 0.0f;
-    private playerController pC;
+    private float playerXPos;
     protected override void Start()
     {
-        pC = GetComponent<playerController>();
         base.Start();
+        playerXPos = GameObject.Find("PLAYER").GetComponent<playerController>().PlayerTrans.position.x;
+        
 
         if (fireRate <= 0)
         {
@@ -20,6 +21,7 @@ public class yellowFairy : enemy
     private void Update()
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        playerXPos = GameObject.Find("PLAYER").GetComponent<playerController>().PlayerTrans.position.x;
 
         if (stateInfo.IsName("yellowFairyWalk")){
             if (Time.time - timeSinceLastShot >= fireRate)
@@ -29,11 +31,11 @@ public class yellowFairy : enemy
             }
         }
 
-        if (pC.playerPosX < gameObject.transform.position.x)
+        if (playerXPos < gameObject.transform.position.x)
         {
             sr.flipX = true;
         }
-        else if (pC.playerPosX > gameObject.transform.position.x)
+        else if (playerXPos > gameObject.transform.position.x)
         {
             sr.flipX = false;
         }

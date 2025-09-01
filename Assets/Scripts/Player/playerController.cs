@@ -16,6 +16,7 @@ public class playerController : MonoBehaviour
     private Collider2D col;
     private groundCheck groundcheck;
     private float initialGroundCheckRadius;
+    public Transform PlayerTrans;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,7 +41,7 @@ public class playerController : MonoBehaviour
         rb.linearVelocityX = hValue * 5f;
         groundcheck.CheckIsGrounded();
         AnimatorStateInfo currentState = anim.GetCurrentAnimatorStateInfo(0);
-        playerPosX = transform.position.x;
+       
 
         if (!currentState.IsName("blue") && Input.GetButtonDown("Fire1"))
         {
