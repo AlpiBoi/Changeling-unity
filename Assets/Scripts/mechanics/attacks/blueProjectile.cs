@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class blueProjectile : MonoBehaviour
 {
-    [SerializeField] private ProjectileType projectileType = ProjectileType.playerBlue;
+    [SerializeField] private int dmg;
     [SerializeField, Range(1, 20)] private float lifetime = 2.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,34 +15,20 @@ public class blueProjectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (projectileType == ProjectileType.playerBlue && col.gameObject.CompareTag("enemy"))
+        playerController player = col.gameObject.GetComponent<playerController>();
+        enemy enemy = col.gameObject.GetComponent<enemy>();
+        if (enemy != null)
         {
-            enemy enemy = col.gameObject.GetComponent<enemy>();
-            if (enemy != null)
-            {
-                enemy.TakeDmg(100);
-            }
+            enemy.TakeDmg(dmg);
         }
+        if (player != null)
+        {
+            player.TakeDMG(dmg);
+        }
+
         Destroy(gameObject);
     }
     public void SetVelocity(Vector2 velocity) => GetComponent<Rigidbody2D>().linearVelocity = velocity;
 
 
-}
-
-public enum ProjectileType
-{
-    playerBasic,
-    playerGreen,
-    playerRed,
-    playerWite,
-    playerBlue,
-    playerYellow,
-    playerPink,
-    enemyGreen,
-    enemeyRed,
-    enemyWite,
-    enemyBlue,
-    enemyYellow,
-    enemyPink
 }

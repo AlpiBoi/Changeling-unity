@@ -17,11 +17,13 @@ public class playerController : MonoBehaviour
     private groundCheck groundcheck;
     private float initialGroundCheckRadius;
     public Transform PlayerTrans;
-    
+    protected int HP;
+    [SerializeField] private int maxHP = 100;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Debug.Log("launched");
+        HP = maxHP;
 
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -73,6 +75,22 @@ public class playerController : MonoBehaviour
     {
         sr.flipX = false;
     }
+    }
+
+    public virtual void TakeDMG(int dmg)
+    {
+        if(HP > dmg)
+        {
+         HP -= dmg;
+         anim.SetTrigger("hurt");
+         Debug.Log("Player hp;" + HP);
+        }
+        else if (HP <= dmg)
+        {
+         anim.SetTrigger("death");
+         Debug.Log("pdeath triggered");
+         return;
+        }
     }
 
  
